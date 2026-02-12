@@ -8,3 +8,4 @@ feat: initialize portfolio website with hero and slideshow
 - Implemented dynamic auto-cycling slideshow with lightbox support
 - Created full-width contact footer section
 - Set up responsive image gallery grid
+- Added the relevent photos and inputed relative fonts

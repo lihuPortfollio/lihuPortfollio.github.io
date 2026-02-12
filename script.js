@@ -1,10 +1,5 @@
-const photos = [
-    'img1.webp',
-    'img2.webp',
-    'img3.webp',
-    'img4.webp',
-    'img5.webp'
-];
+// Generates ['1.jpg', '2.jpg', ..., '26.jpg']
+const photos = Array.from({ length: 26 }, (_, i) => `${i + 1}.jpg`);
 
 const gallery = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
