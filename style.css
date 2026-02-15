@@ -188,3 +188,18 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+.main-title {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: var(--bg-color);
+}
+
+.main-title h1 {
+    font-family: 'Luckiest Guy', cursive; 
+    font-size: clamp(5rem, 15vw, 10rem); 
+    margin: 0;
+    color: var(--text-color);
+    letter-spacing: 10px; 
+    text-transform: uppercase;
+}
