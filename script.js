@@ -1,5 +1,5 @@
-// Generates ['1.jpg', '2.jpg', ..., '26.jpg']
-const photos = Array.from({ length: 26 }, (_, i) => `${i + 1}.jpg`);
+// Generates ['1.jpg', '2.jpg', ..., '46.jpg']
+const photos = Array.from({ length: 46 }, (_, i) => `${i + 1}.jpg`);
 
 const gallery = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
@@ -14,7 +14,7 @@ photos.forEach(src => {
 
 // Create stacked slideshow container
 const featuredDiv = document.createElement('div');
-featuredDiv.className = 'photo-item featured-photo';
+featuredDiv.className = 'featured-photo';
 
 // Create two layers for the crossfade
 const imgLayerA = document.createElement('img');
@@ -30,7 +30,10 @@ imgLayerB.style.zIndex = 1;
 
 featuredDiv.appendChild(imgLayerA);
 featuredDiv.appendChild(imgLayerB);
-gallery.parentNode.insertBefore(featuredDiv, gallery);
+const mainTitle = document.querySelector('.main-title');
+if (mainTitle) {
+    mainTitle.parentNode.insertBefore(featuredDiv, mainTitle.nextSibling);
+}
 
 // Tracking variables
 let currentIndex = 0;
