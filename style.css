@@ -27,17 +27,17 @@ body {
 /* --- Typography Section --- */
 .main-title {
     text-align: center;
-    padding: 275px 20px 150px 20px; 
+    padding: clamp(100px, 20vh, 275px) 5vw clamp(20px, 5vh, 50px) 5vw;
     background-color: var(--bg-color);
     position: relative;
     z-index: 1; 
 }
 
 .main-title h1 {
-    font-size: clamp(6rem, 25vw, 15rem); 
+    font-size: clamp(4rem, 20vw, 15rem); 
     margin: 0;
     color: #575757; 
-    letter-spacing: 10px; 
+    letter-spacing: clamp(4px, 1.5vw, 12px); 
     line-height: 0.8;
     text-transform: uppercase;
     font-weight: 400; 
@@ -47,10 +47,10 @@ body {
 .featured-photo {
     width: 90%;          
     max-width: 800px;
-    /* Maintain 3:2 aspect ratio */
     aspect-ratio: 3 / 2; 
-    /* Centering: -140px overlap, auto horizontal */
-    margin: -140px auto 40px auto;  
+    
+    margin: clamp(-30px, -15vw, -80px) auto 40px auto;
+    
     background: #000;
     border: 5px solid #000; 
     position: relative; 
@@ -160,6 +160,7 @@ body {
     font-size: 50px;
     cursor: pointer;
 }
+
 /* --- contact-box --- */
 .contact-box {
     width: 100%; 
@@ -185,6 +186,12 @@ body {
     padding: 20px;
     text-align: center;
     z-index: 2;
+}
+
+.contact-text h2, 
+.contact-text p {
+    margin-bottom: 5px; 
+    margin-top: 0;      
 }
 
 .contact-image {
@@ -213,11 +220,11 @@ body {
 }
 
 .email-link {
+    margin-top: 0;
     display: inline-block;
-    font-family: 'Zalando Sans', sans-serif;
+    font-family: 'Zalando Sans Expanded', sans-serif;
     color: var(--bg-color);
     text-decoration: none;
-    font-weight: bold;
     padding: 10px 20px;
     border-radius: 5px;
     transition: 0.3s;
