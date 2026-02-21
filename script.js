@@ -1,27 +1,22 @@
-// Generates ['1.jpg', '2.jpg', ..., '46.jpg']
+// Main gallery photos (46 images)
 const photos = Array.from({ length: 46 }, (_, i) => `${i + 1}.jpg`);
+// Slideshow photos (1-4 images in the subfolder)
+const featuredPhotos = Array.from({ length: 4 }, (_, i) => `${i + 1}.jpg`);
 
 const gallery = document.getElementById('gallery');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.close');
 
-// Preload images for smoother slideshow transitions
-photos.forEach(src => {
-    const img = new Image();
-    img.src = `images/${src}`;
-});
-
 // Create stacked slideshow container
 const featuredDiv = document.createElement('div');
 featuredDiv.className = 'featured-photo';
 
-// Create two layers for the crossfade
 const imgLayerA = document.createElement('img');
 const imgLayerB = document.createElement('img');
 
-// Initial state
-imgLayerA.src = `images/${photos[0]}`;
+// Initial state - Pointing to the NEW subfolder
+imgLayerA.src = `images/featured-photo/${featuredPhotos[0]}`;
 imgLayerA.style.opacity = 1;
 imgLayerA.style.zIndex = 2;
 
@@ -35,22 +30,21 @@ if (mainTitle) {
     mainTitle.parentNode.insertBefore(featuredDiv, mainTitle.nextSibling);
 }
 
-// Tracking variables
+// Tracking variables for slideshow
 let currentIndex = 0;
 let activeLayer = imgLayerA;
 let hiddenLayer = imgLayerB;
 
 // Crossfade Slideshow Logic
 setInterval(() => {
-    currentIndex = (currentIndex + 1) % photos.length;
-    const nextSrc = `images/${photos[currentIndex]}`;
+    currentIndex = (currentIndex + 1) % featuredPhotos.length;
+    const nextSrc = `images/featured-photo/${featuredPhotos[currentIndex]}`;
 
     hiddenLayer.src = nextSrc;
 
     hiddenLayer.onload = () => {
         hiddenLayer.style.opacity = 1;
         activeLayer.style.opacity = 0;
-
         hiddenLayer.style.zIndex = 2;
         activeLayer.style.zIndex = 1;
 
@@ -58,13 +52,13 @@ setInterval(() => {
     };
 }, 4000); 
 
-// Lightbox for the slideshow
+// Slideshow Lightbox
 featuredDiv.onclick = () => {
     lightbox.style.display = "block";
     lightboxImg.src = activeLayer.src; 
 };
 
-// Render the rest of the photos in the gallery
+// Render gallery photos (remains in the main images folder)
 photos.forEach(fileName => {
     const div = document.createElement('div');
     div.className = 'photo-item';

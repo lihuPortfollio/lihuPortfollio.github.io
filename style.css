@@ -47,8 +47,8 @@ body {
 .featured-photo {
     width: 90%;          
     max-width: 800px;
-    /* Maintain 16:9 aspect ratio */
-    aspect-ratio: 16 / 9; 
+    /* Maintain 3:2 aspect ratio */
+    aspect-ratio: 3 / 2; 
     /* Centering: -140px overlap, auto horizontal */
     margin: -140px auto 40px auto;  
     background: #000;
@@ -180,7 +180,7 @@ body {
 
 .contact-text {
     color: var(--bg-color);
-    font-family: 'Arial', sans-serif;
+    font-family: 'Syne Mono', monospace;
     flex: 0 0 30%; 
     padding: 20px;
     text-align: center;
@@ -214,7 +214,7 @@ body {
 
 .email-link {
     display: inline-block;
-    font-family: sans-serif;
+    font-family: 'Zalando Sans', sans-serif;
     color: var(--bg-color);
     text-decoration: none;
     font-weight: bold;
