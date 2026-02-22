@@ -29,20 +29,22 @@ body {
 /* --- Typography Section --- */
 .main-title {
     text-align: center;
-    padding: clamp(120px, 30vh, 275px) 5vw clamp(20px, 5vh, 50px) 5vw;
+    padding: clamp(100px, 20vh, 275px) 5vw 12vh 5vw; 
     background-color: var(--bg-color);
     position: relative;
     z-index: 1; 
 }
 
 .main-title h1 {
-    font-size: clamp(4rem, 20vw, 15rem); 
+    font-size: clamp(5rem, 25vw, 18rem); 
     margin: 0;
     color: #575757; 
-    letter-spacing: clamp(4px, 1.5vw, 12px); 
-    line-height: 0.8;
+    letter-spacing: -0.02em; 
+    line-height: 0.75;
     text-transform: uppercase;
     font-weight: 400; 
+    max-width: 100%; 
+    word-wrap: break-word;
 }
 
 /* --- Slideshow (Centered & Overlapping) --- */
@@ -50,9 +52,7 @@ body {
     width: 90%;          
     max-width: 1000px;
     aspect-ratio: 3 / 2; 
-    
-    margin: clamp(-30px, -15vw, -80px) auto 40px auto;
-    
+    margin: -10vh auto 40px auto; 
     background: #000;
     border: 5px solid #000; 
     position: relative; 

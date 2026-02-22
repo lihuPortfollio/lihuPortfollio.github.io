@@ -12,3 +12,4 @@ Features:
 - Added shadow and reactive photo hover for gallery photos
 - Added floating contact box
 - Added sliding window for edited photos
+- Edited the scrollbar view
