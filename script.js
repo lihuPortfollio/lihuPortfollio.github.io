@@ -84,3 +84,9 @@ lightbox.onclick = (e) => {
         lightbox.style.display = "none";
     }
 };
+
+// Close contact card function
+function closeContactCard() {
+    const card = document.getElementById('floatingCard');
+    card.style.display = 'none';
+}
