@@ -90,3 +90,18 @@ function closeContactCard() {
     const card = document.getElementById('floatingCard');
     card.style.display = 'none';
 }
+
+// Before and After Slider Logic
+const sliderInput = document.querySelector('.slider-input');
+const imgBefore = document.querySelector('.img-before');
+const sliderHandle = document.querySelector('.slider-handle');
+
+sliderInput.addEventListener('input', (e) => {
+    const value = e.target.value + "%";
+    
+    // Move the clipping layer
+    imgBefore.style.width = value;
+    
+    // Move the white line handle
+    sliderHandle.style.left = value;
+});
