@@ -29,7 +29,7 @@ body {
 /* --- Typography Section --- */
 .main-title {
     text-align: center;
-    padding: clamp(100px, 20vh, 275px) 5vw clamp(20px, 5vh, 50px) 5vw;
+    padding: clamp(120px, 30vh, 275px) 5vw clamp(20px, 5vh, 50px) 5vw;
     background-color: var(--bg-color);
     position: relative;
     z-index: 1; 
@@ -48,7 +48,7 @@ body {
 /* --- Slideshow (Centered & Overlapping) --- */
 .featured-photo {
     width: 90%;          
-    max-width: 800px;
+    max-width: 1000px;
     aspect-ratio: 3 / 2; 
     
     margin: clamp(-30px, -15vw, -80px) auto 40px auto;
@@ -242,7 +242,7 @@ body {
     top: 10px;
     right: 15px;
     font-size: 20px;
-    color: #575757;
+    color: #f7f7f7;
     cursor: pointer;
     line-height: 1;
     transition: color 0.3s;
@@ -252,18 +252,15 @@ body {
     color: #575757;
 }
 
- .floating-contact {
+.floating-contact {
     position: fixed; 
     right: 10px;     
     top: 50%;         
     transform: translateY(-50%); 
-    
-    width: 250px;
+    width: 200px;
     background-color: rgba(26, 26, 26, 0.95); 
     border: 1px solid #333;
-    
     border-radius: 15px;  
-    
     padding: 10px;
     text-align: center;
     z-index: 1;  
@@ -292,7 +289,7 @@ body {
     text-decoration: none;
     font-size: 0.7rem;
     font-weight: bold;
-    padding: 8px 12px;
+    padding: 8px 8px;
     border: 1px solid #575757;
     transition: 0.3s;
     font-family: 'Zalando Sans Expanded', sans-serif;
@@ -377,6 +374,27 @@ body {
     border-radius: 50%;
     background: rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
+}
+
+/* Removes default styling for Chrome, Safari, Edge, and Opera */
+.slider-input::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px; 
+    height: 15px;
+    background: #575757; 
+    border-radius: 50%;
+    cursor: ew-resize;
+}
+
+/* Removes default styling for Firefox */
+.slider-input::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #575757;
+    border-radius: 50%;
+    cursor: ew-resize;
+    border: none;
 }
 
 html {
