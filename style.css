@@ -168,10 +168,11 @@ body {
 /* --- Contact Box --- */
 .contact-box {
     width: 100%; 
-    background-color: var(--text-color); 
+    background-color: #efeee9; 
     border-top: 1px solid #333; 
     padding: 0; 
     overflow: hidden;
+    margin-bottom: -1px;
 }
 
 .contact-content {
@@ -183,23 +184,35 @@ body {
     margin: 0;
 }
 
-.contact-text {
+ .contact-text {
     color: var(--bg-color);
     font-family: 'Syne Mono', monospace;
     flex: 0 0 30%; 
-    padding: 20px;
+    padding: 100px 20px 0px 20px;
     text-align: center;
     z-index: 2;
+    position: relative; 
+    min-height: 180px;
 }
 
-.contact-text h2, 
-.contact-text p {
+.contact-text h2 {
     margin-bottom: 5px; 
     margin-top: 0;      
 }
 
+.contact-text h6 {
+    position: absolute; 
+    bottom: 15px;       
+    left: 100px;        
+    margin: 0;          
+    width: auto;        
+    text-align: left;   
+    transform: none;    
+    font-size: 10px;    
+}
+
 .contact-image {
-    flex: 0 0 70%; 
+    flex: 0 0 73%; 
     position: relative;
     align-self: stretch; 
 }
@@ -219,7 +232,7 @@ body {
     left: 0;
     width: 50%; 
     height: 100%;
-    background: linear-gradient(to right, var(--text-color) 0%, transparent 100%);
+    background: linear-gradient(to right, #efeee9 0%, transparent 100%);
     z-index: 1;
 }
 
