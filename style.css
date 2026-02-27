@@ -16,7 +16,7 @@ body {
 .hero {
     height: 100dvh;
     width: 100%;
-    background: url('images/1.jpg') no-repeat center center/cover;
+    background: url('images/hero-photo/1.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,45 +82,18 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0; 
-    padding: 60px;
-    max-width: 1400px;
+    padding: 100px 5vw;
+    max-width: 1600px;
     margin: 0 auto;
-    align-items: flex-start;
     position: relative;
     z-index: 10;
+    background-color: var(--bg-color);
 }
 
 .photo-item {
-    display: block;
-    margin-bottom: 150px; 
-}
-
-/* Group 1: Wide images on the left */
-.photo-item:nth-child(4n+1) {
-    flex: 0 0 45%; 
-    margin-right: 10%;
-    margin-left: 0;
-}
-
-/* Group 2: Narrow images pushed right */
-.photo-item:nth-child(4n+2) {
-    flex: 0 0 30%;
-    margin-left: 20%;
-    margin-top: 80px; 
-}
-
-/* Group 3: Centered smaller images */
-.photo-item:nth-child(4n+3) {
-    flex: 0 0 35%;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-/* Group 4: Pushed far right */
-.photo-item:nth-child(4n+4) {
-    flex: 0 0 40%;
-    margin-left: auto;
-    margin-top: -40px; 
+    position: relative;
+    margin-bottom: 15vh; 
+    transition: transform 0.5s ease;
 }
 
 .photo-item img {
@@ -131,7 +104,66 @@ body {
 }
 
 .photo-item:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
+}
+
+/* Specific Sizes */
+.photo-item.wide { flex: 0 0 55%; }
+.photo-item.medium { flex: 0 0 40%; }
+.photo-item.small { flex: 0 0 30%;
+padding: 0 5px; /* Adds horizontal padding for small photos */
+}
+.photo-item.tall { flex: 0 0 40%; }
+
+/* Alignment Logic */
+.photo-item.left { margin-right: auto; margin-left: 0; }
+.photo-item.right { margin-left: auto; margin-right: 0; }
+.photo-item.center { margin-left: auto; margin-right: auto; }
+
+.photo-item.fixed-size {
+    flex: 0 0 60%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.photo-item.fixed-size img {
+    width: 100%;
+    aspect-ratio: 3 / 2; 
+    object-fit: cover;
+}
+
+/* Offsets for Asymmetry */
+.photo-item.push-up { margin-top: -10vh; }
+.photo-item.push-down { margin-top: 10vh; }
+
+.photo-item.diptych-member {
+    flex: 0 0 35%; 
+    margin-bottom: 5vh; 
+    margin-left: 2%;    
+    margin-right: 2%;
+}
+
+.photo-item.diptych-member img {
+    width: 100%;
+    aspect-ratio: 2 / 3; 
+    object-fit: cover;
+}
+
+.gallery {
+    justify-content: center;
+}
+
+.photo-item.stacked-pair {
+    flex: 0 0 70%;      
+    margin-left: auto;  
+    margin-right: auto; 
+    margin-bottom: 5vh; 
+}
+
+.photo-item.stacked-pair img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* --- Lightbox & UI Components --- */
@@ -176,7 +208,7 @@ body {
 .contact-content {
     display: flex;
     width: 100%;
-    /* Based on 6361x1220, the height is ~19% of the width of 23.jpg */
+    /* Based on 6361x1220, the height is ~19% of the width of footer-photo/1.jpg */
     height: 19vw; 
     min-height: 150px; 
 }
