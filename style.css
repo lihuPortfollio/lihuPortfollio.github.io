@@ -86,13 +86,13 @@ body {
     max-width: 1600px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
     background-color: var(--bg-color);
+    justify-content: center;
 }
 
 .photo-item {
     position: relative;
-    z-index: 1;
+    z-index: 10;
     margin-bottom: 15vh; 
     transition: transform 0.5s ease;
 }
@@ -167,10 +167,6 @@ body {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.gallery {
-    justify-content: center;
 }
 
 .stacked-column {
