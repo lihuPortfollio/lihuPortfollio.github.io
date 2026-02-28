@@ -58,33 +58,101 @@ const layoutClasses = [
     ['medium', 'right'],          // 4
     ['small', 'left', 'push-down'], // 5
     ['tall', 'right', 'push-up'],          // 6
-    ['diptych-member', 'center', 'fixed-size'], // 7
-    ['diptych-member', 'center', 'fixed-size'], // 8 
-    ['small', 'left'],           // 9
-    ['medium', 'left', 'push-down'],           // 10
-    ['small', 'right', 'push-up'],         // 11
+    ['diptych-member'], // 7
+    ['diptych-member'], // 8 
+    ['small', 'right'],           // 9
+    ['medium', 'right', 'push-down'],           // 10
+    ['small', 'left', 'push-up'],         // 11
     ['wide', 'center', 'stacked-pair'], // 12 
     ['wide', 'center', 'stacked-pair']  // 13 
 ];
 
 // This loop generates the items and injects them into the empty #gallery
+let diptychContainer = null;
+let stackedContainer = null;
 for (let i = 1; i <= photosCount; i++) {
     const div = document.createElement('div');
     div.classList.add('photo-item', ...layoutClasses[i - 1]);
-    
-    const img = document.createElement('img');
-    img.src = `images/gallery-photos/${i}.jpg`; 
-    img.alt = `Gallery Image ${i}`;
-    img.loading = "lazy";
 
-    img.onclick = () => {
-        lightbox.style.display = "block";
-        lightboxImg.src = img.src;
-    };
+    // Logic for photo 5: Inject the Comparison Slider
+    if (i === 5) {
+        div.innerHTML = `
+            <div class="comparison-slider gallery-slider">
+                <img src="images/edited/2.jpg" alt="After" class="img-after">
+                <div class="img-before">
+                    <img src="images/edited/1.jpg" alt="Before">
+                </div>
+                <div class="slider-handle">
+                    <div class="handle-line"></div>
+                    <div class="handle-circle"></div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="slider-input">
+            </div>
+        `;
+        } else {
+        // Logic for all other photos
+        const img = document.createElement('img');
+        img.src = `images/gallery-photos/${i}.jpg`;
+        img.alt = `Gallery Image ${i}`;
+        img.loading = "lazy";
+        img.onclick = () => {
+            lightbox.style.display = "block";
+            lightboxImg.src = img.src;
+        };
+        div.appendChild(img);
+    }
 
-    div.appendChild(img);
-    gallery.appendChild(div);
+    // Standard placement logic for 7, 8, 12, 13
+    if (i === 7 || i === 8) {
+        if (!diptychContainer) {
+            diptychContainer = document.createElement('div');
+            diptychContainer.className = 'diptych-row';
+            gallery.appendChild(diptychContainer);
+        }
+        diptychContainer.appendChild(div);
+    } 
+    else if (i === 12 || i === 13) {
+        if (!stackedContainer) {
+            stackedContainer = document.createElement('div');
+            stackedContainer.className = 'stacked-column'; 
+            gallery.appendChild(stackedContainer);
+        }
+        stackedContainer.appendChild(div);
+    } 
+    else {
+        gallery.appendChild(div);
+    }
 }
+
+/* --- Comparison Slider Logic --- */
+const initSliders = () => {
+    const sliders = document.querySelectorAll('.comparison-slider');
+    
+    sliders.forEach(slider => {
+        const input = slider.querySelector('.slider-input');
+        const beforeContainer = slider.querySelector('.img-before');
+        const beforeImg = beforeContainer.querySelector('img');
+        const handle = slider.querySelector('.slider-handle');
+
+        const syncImageSize = () => {
+            const sliderWidth = slider.offsetWidth;
+            if (sliderWidth > 0) {
+                beforeImg.style.width = sliderWidth + 'px';
+            }
+        };
+
+        syncImageSize();
+        window.addEventListener('resize', syncImageSize);
+
+        input.addEventListener('input', (e) => {
+            const value = e.target.value + "%";
+            beforeContainer.style.width = value; 
+            handle.style.left = value;
+        });
+    });
+};
+// Call the function to initialize sliders after DOM content is loaded
+initSliders();
 
 /* --- UI Handlers --- */
 closeBtn.onclick = () => lightbox.style.display = "none";
@@ -94,17 +162,4 @@ lightbox.onclick = (e) => {
 
 function closeContactCard() {
     document.getElementById('floatingCard').style.display = 'none';
-}
-
-/* --- Comparison Slider --- */
-const sliderInput = document.querySelector('.slider-input');
-const imgBefore = document.querySelector('.img-before');
-const sliderHandle = document.querySelector('.slider-handle');
-
-if (sliderInput) {
-    sliderInput.addEventListener('input', (e) => {
-        const value = e.target.value + "%";
-        imgBefore.style.width = value;
-        sliderHandle.style.left = value;
-    });
 }
