@@ -73,26 +73,36 @@ let stackedContainer = null;
 for (let i = 1; i <= photosCount; i++) {
     const div = document.createElement('div');
     div.classList.add('photo-item', ...layoutClasses[i - 1]);
-    
-    const img = document.createElement('img');
-    
-    // Logic for photo 5 from the 'edited' folder
+
+    // Logic for photo 5: Inject the Comparison Slider
     if (i === 5) {
-        img.src = `images/edited/1.jpg`; 
-    } else {
-        img.src = `images/gallery-photos/${i}.jpg`; 
+        div.innerHTML = `
+            <div class="comparison-slider gallery-slider">
+                <img src="images/edited/2.jpg" alt="After" class="img-after">
+                <div class="img-before">
+                    <img src="images/edited/1.jpg" alt="Before">
+                </div>
+                <div class="slider-handle">
+                    <div class="handle-line"></div>
+                    <div class="handle-circle"></div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="slider-input">
+            </div>
+        `;
+        } else {
+        // Logic for all other photos
+        const img = document.createElement('img');
+        img.src = `images/gallery-photos/${i}.jpg`;
+        img.alt = `Gallery Image ${i}`;
+        img.loading = "lazy";
+        img.onclick = () => {
+            lightbox.style.display = "block";
+            lightboxImg.src = img.src;
+        };
+        div.appendChild(img);
     }
 
-    img.alt = `Gallery Image ${i}`;
-    img.loading = "lazy";
-    img.onclick = () => {
-        lightbox.style.display = "block";
-        lightboxImg.src = img.src;
-    };
-
-    div.appendChild(img);
-
-    // Side-by-side pair (7 & 8)
+    // Standard placement logic for 7, 8, 12, 13
     if (i === 7 || i === 8) {
         if (!diptychContainer) {
             diptychContainer = document.createElement('div');
@@ -101,7 +111,6 @@ for (let i = 1; i <= photosCount; i++) {
         }
         diptychContainer.appendChild(div);
     } 
-    // Vertical stacked pair (12 & 13)
     else if (i === 12 || i === 13) {
         if (!stackedContainer) {
             stackedContainer = document.createElement('div');
@@ -115,6 +124,36 @@ for (let i = 1; i <= photosCount; i++) {
     }
 }
 
+/* --- Comparison Slider Logic --- */
+const initSliders = () => {
+    const sliders = document.querySelectorAll('.comparison-slider');
+    
+    sliders.forEach(slider => {
+        const input = slider.querySelector('.slider-input');
+        const beforeContainer = slider.querySelector('.img-before');
+        const beforeImg = beforeContainer.querySelector('img');
+        const handle = slider.querySelector('.slider-handle');
+
+        const syncImageSize = () => {
+            const sliderWidth = slider.offsetWidth;
+            if (sliderWidth > 0) {
+                beforeImg.style.width = sliderWidth + 'px';
+            }
+        };
+
+        syncImageSize();
+        window.addEventListener('resize', syncImageSize);
+
+        input.addEventListener('input', (e) => {
+            const value = e.target.value + "%";
+            beforeContainer.style.width = value; 
+            handle.style.left = value;
+        });
+    });
+};
+// Call the function to initialize sliders after DOM content is loaded
+initSliders();
+
 /* --- UI Handlers --- */
 closeBtn.onclick = () => lightbox.style.display = "none";
 lightbox.onclick = (e) => {
@@ -123,17 +162,4 @@ lightbox.onclick = (e) => {
 
 function closeContactCard() {
     document.getElementById('floatingCard').style.display = 'none';
-}
-
-/* --- Comparison Slider --- */
-const sliderInput = document.querySelector('.slider-input');
-const imgBefore = document.querySelector('.img-before');
-const sliderHandle = document.querySelector('.slider-handle');
-
-if (sliderInput) {
-    sliderInput.addEventListener('input', (e) => {
-        const value = e.target.value + "%";
-        imgBefore.style.width = value;
-        sliderHandle.style.left = value;
-    });
 }

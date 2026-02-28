@@ -380,42 +380,39 @@ body {
 }
 
 /* --- Comparison Container --- */
-.comparison-container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 100px auto;
-    position: relative;
-    overflow: hidden;
-    z-index: 10; 
-}
-
-.comparison-slider {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3/2; 
-}
-
-.comparison-slider img {
-    width: 100%;
-    height: 100%;
+.comparison-slider.gallery-slider {
+   height: 100%;
     object-fit: cover;
     display: block;
+    max-width: none;
+    position: relative;
+    overflow: hidden; /
 }
 
-.img-before {
+.gallery-slider .img-before {
     position: absolute;
     top: 0;
     left: 0;
-    /* Updating accoring to the script */
-    width: 50%; 
     height: 100%;
-    overflow: hidden;
-    z-index: 2;
+    width: 50%;
+    overflow: hidden; 
+    z-index: 2; 
 }
 
-.img-before img {
-    width: 1000px; 
-    max-width: none;
+.gallery-slider .img-after {
+    position: relative;
+    z-index: 1; 
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.gallery-slider .img-before img {
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    max-width: none !important; 
+    /* The width is handled by the JS syncImageSize function */
 }
 
 /* The Draggable Line & Handle */
