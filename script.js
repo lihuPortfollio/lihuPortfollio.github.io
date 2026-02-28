@@ -58,32 +58,61 @@ const layoutClasses = [
     ['medium', 'right'],          // 4
     ['small', 'left', 'push-down'], // 5
     ['tall', 'right', 'push-up'],          // 6
-    ['diptych-member', 'center', 'fixed-size'], // 7
-    ['diptych-member', 'center', 'fixed-size'], // 8 
-    ['small', 'left'],           // 9
-    ['medium', 'left', 'push-down'],           // 10
-    ['small', 'right', 'push-up'],         // 11
+    ['diptych-member'], // 7
+    ['diptych-member'], // 8 
+    ['small', 'right'],           // 9
+    ['medium', 'right', 'push-down'],           // 10
+    ['small', 'left', 'push-up'],         // 11
     ['wide', 'center', 'stacked-pair'], // 12 
     ['wide', 'center', 'stacked-pair']  // 13 
 ];
 
 // This loop generates the items and injects them into the empty #gallery
+let diptychContainer = null;
+let stackedContainer = null;
 for (let i = 1; i <= photosCount; i++) {
     const div = document.createElement('div');
     div.classList.add('photo-item', ...layoutClasses[i - 1]);
     
     const img = document.createElement('img');
-    img.src = `images/gallery-photos/${i}.jpg`; 
+    
+    // Logic for photo 5 from the 'edited' folder
+    if (i === 5) {
+        img.src = `images/edited/1.jpg`; 
+    } else {
+        img.src = `images/gallery-photos/${i}.jpg`; 
+    }
+
     img.alt = `Gallery Image ${i}`;
     img.loading = "lazy";
-
     img.onclick = () => {
         lightbox.style.display = "block";
         lightboxImg.src = img.src;
     };
 
     div.appendChild(img);
-    gallery.appendChild(div);
+
+    // Side-by-side pair (7 & 8)
+    if (i === 7 || i === 8) {
+        if (!diptychContainer) {
+            diptychContainer = document.createElement('div');
+            diptychContainer.className = 'diptych-row';
+            gallery.appendChild(diptychContainer);
+        }
+        diptychContainer.appendChild(div);
+    } 
+    // Vertical stacked pair (12 & 13)
+    else if (i === 12 || i === 13) {
+        if (!stackedContainer) {
+            stackedContainer = document.createElement('div');
+            stackedContainer.className = 'stacked-column'; 
+            gallery.appendChild(stackedContainer);
+        }
+        stackedContainer.appendChild(div);
+    } 
+    else {
+        gallery.appendChild(div);
+    }
 }
 
 /* --- UI Handlers --- */
