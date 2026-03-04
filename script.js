@@ -54,7 +54,7 @@ featuredDiv.onclick = () => {
 const layoutClasses = [
     ['medium', 'left', 'push-up'], // 1
     ['small', 'right', 'push-down'], // 2
-    ['tall', 'center'],     // 3
+    ['tall', 'center'],    // 3
     ['medium', 'right'],   // 4
     ['medium', 'left', 'push-down'], // 5
     ['medium', 'right', 'push-up'],    // 6
@@ -62,7 +62,7 @@ const layoutClasses = [
     ['diptych-member'], // 8 
     ['small', 'right'],   // 9
     ['medium', 'right', 'push-down'],   // 10
-    ['small', 'left', 'push-up'],         // 11
+    ['small', 'left', 'push-up'],  // 11
     ['wide', 'center', 'stacked-pair'], // 12 
     ['wide', 'center', 'stacked-pair'],  // 13 
     ['medium', 'right', 'push-down'],  // 14
