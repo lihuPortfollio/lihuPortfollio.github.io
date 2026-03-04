@@ -520,3 +520,62 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+/* --- Global Mobile Scaling and Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .floating-contact {
+        width: 150px; 
+        padding: 8px;
+        right: 5px;  
+    }
+
+    .floating-contact h2 {
+        font-size: 0.8rem; 
+        margin-bottom: 2px;
+    }
+
+    .email-link-small {
+        font-size: 0.6rem; 
+        padding: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .gallery {
+        padding: 50px 3vw;
+    }
+
+    .photo-item {
+        margin-bottom: 10vh; 
+    }
+
+    .photo-item.huge   { flex: 0 0 85%; }
+    .photo-item.big    { flex: 0 0 75%; }
+    .photo-item.wide   { flex: 0 0 55%; }
+    .photo-item.medium { flex: 0 0 45%; }
+    .photo-item.small  { flex: 0 0 40%; }
+    .photo-item.tall   { flex: 0 0 35%; }
+
+    .photo-item.diptych-member {
+        flex: 0 0 44%; 
+    }
+    .diptych-row {
+        gap: 10px;
+        margin-bottom: 10vh;
+    }
+
+    .photo-item.stacked-pair {
+        width: 70%; 
+    }
+    .photo-item.stacked-pair:first-child {
+        margin-left: 5%; /
+    }
+
+    .photo-item.push-up   { margin-top: -5vh; }
+    .photo-item.push-down { margin-top: 5vh; }
+
+    .comparison-slider.gallery-slider {
+        aspect-ratio: 3/2;
+    }
+}
