@@ -56,7 +56,7 @@ const layoutClasses = [
     ['small', 'right', 'push-down'], // 2
     ['tall', 'center'],     // 3
     ['medium', 'right'],   // 4
-    ['small', 'left', 'push-down'], // 5
+    ['medium', 'left', 'push-down'], // 5
     ['tall', 'right', 'push-up'],    // 6
     ['diptych-member'], // 7
     ['diptych-member'], // 8 
