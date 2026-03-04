@@ -1,5 +1,5 @@
-// Main gallery photos (13 images in subfolder)
-const photosCount = 13;
+// Main gallery photos (20 images in subfolder)
+const photosCount = 20;
 // Slideshow photos (1-4 images)
 const featuredPhotos = Array.from({ length: 4 }, (_, i) => `${i + 1}.jpg`);
 
@@ -54,17 +54,24 @@ featuredDiv.onclick = () => {
 const layoutClasses = [
     ['medium', 'left', 'push-up'], // 1
     ['small', 'right', 'push-down'], // 2
-    ['tall', 'center'],         // 3
-    ['medium', 'right'],          // 4
+    ['tall', 'center'],     // 3
+    ['medium', 'right'],   // 4
     ['small', 'left', 'push-down'], // 5
-    ['tall', 'right', 'push-up'],          // 6
+    ['tall', 'right', 'push-up'],    // 6
     ['diptych-member'], // 7
     ['diptych-member'], // 8 
-    ['small', 'right'],           // 9
-    ['medium', 'right', 'push-down'],           // 10
+    ['small', 'right'],   // 9
+    ['medium', 'right', 'push-down'],   // 10
     ['small', 'left', 'push-up'],         // 11
     ['wide', 'center', 'stacked-pair'], // 12 
-    ['wide', 'center', 'stacked-pair']  // 13 
+    ['wide', 'center', 'stacked-pair'],  // 13 
+    ['medium', 'right', 'push-down'],  // 14
+    ['medium', 'left', 'push-up'],  // 15
+    ['medium', 'right', 'push-down'],  // 16
+    ['medium', 'left', 'push-up'],  // 17
+    ['big', 'left'], // 18
+    ['big', 'right'], // 19
+    ['huge', 'center'] // 20
 ];
 
 // This loop generates the items and injects them into the empty #gallery

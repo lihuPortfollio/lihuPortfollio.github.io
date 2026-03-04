@@ -109,6 +109,14 @@ body {
 }
 
 /* Specific Sizes */
+.photo-item.huge { 
+    flex: 0 0 70%; 
+    padding: 0 10px;
+}
+.photo-item.big { 
+    flex: 0 0 60%; 
+    padding: 0 10px;
+}
 .photo-item.wide { 
     flex: 0 0 45%; 
     padding: 0 10px;
@@ -169,7 +177,7 @@ body {
     display: block;
 }
 
-.stacked-column {
+ .stacked-column {
     display: flex;
     flex-direction: column; 
     align-items: center;   
@@ -182,6 +190,17 @@ body {
     flex: 0 0 auto;         
     width: 45%;             
     margin: 0;              
+}
+
+/* Upper photo (Image 12) */
+.photo-item.stacked-pair:first-child {
+    align-self: flex-start; 
+    margin-left: 15%;      
+}
+
+/* Lower photo (Image 13) */
+.photo-item.stacked-pair:last-child {
+    align-self: center;     
 }
 
 .photo-item.stacked-pair img {
@@ -205,8 +224,8 @@ body {
 .lightbox-content {
     margin: auto;
     display: block;
-    max-width: 90%;
-    max-height: 80%;
+    max-width: 95%;
+    max-height: 90%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
