@@ -592,11 +592,31 @@ html {
         margin-right: auto !important;
     }
 
-    .comparison-slider.gallery-slider {
-        width: 100% !important;
-        aspect-ratio: 3/2;
+    .gallery-slider .img-before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        /* This container's width is changed by JS, 
+           acting as a mask for the image below */
+        overflow: hidden; 
+        z-index: 2;
     }
 
+    .gallery-slider .img-before img {
+        width: 95vw !important; 
+        height: 100% !important;
+        object-fit: cover;
+        display: block;
+        max-width: none !important; 
+    }
+
+    .gallery-slider .img-after {
+        width: 95vw !important;
+        height: 100% !important;
+        object-fit: cover;
+        display: block;
+    }
     .photo-item.push-up   { margin-top: -2vh; }
     .photo-item.push-down { margin-top: 2vh; }
 
