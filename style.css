@@ -122,11 +122,11 @@ body {
     padding: 0 10px;
 }
 .photo-item.medium { 
-    flex: 0 0 40%; 
+    flex: 0 0 43.5%; 
     padding: 0 10px;
 }
 .photo-item.small { 
-    flex: 0 0 33%;
+    flex: 0 0 40%;
     padding: 0 10px;
 }
 .photo-item.tall { 
