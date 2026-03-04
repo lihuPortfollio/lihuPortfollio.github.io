@@ -653,4 +653,12 @@ html {
         padding: 8px 12px;
         font-size: 0.65rem;
     }
+
+    .featured-photo {
+        width: 85%;          
+        max-width: none;
+        margin: -12vh auto 10px auto; 
+        z-index: 20;           
+        border-width: 3px;     
+    }
 }
