@@ -1,5 +1,5 @@
-// Main gallery photos (20 images in subfolder)
-const photosCount = 20;
+// Main gallery photos (28 images in subfolder)
+const photosCount = 28;
 // Slideshow photos (1-4 images)
 const featuredPhotos = Array.from({ length: 4 }, (_, i) => `${i + 1}.jpg`);
 
@@ -60,18 +60,26 @@ const layoutClasses = [
     ['medium', 'right', 'push-up'],    // 6
     ['diptych-member'], // 7
     ['diptych-member'], // 8 
-    ['small', 'right'],   // 9
-    ['medium', 'right', 'push-down'],   // 10
-    ['small', 'left', 'push-up'],  // 11
-    ['wide', 'center', 'stacked-pair'], // 12 
-    ['wide', 'center', 'stacked-pair'],  // 13 
-    ['medium', 'right', 'push-down'],  // 14
-    ['medium', 'left', 'push-up'],  // 15
-    ['medium', 'right', 'push-down'],  // 16
-    ['medium', 'left', 'push-up'],  // 17
-    ['big', 'left'], // 18
-    ['big', 'right'], // 19
-    ['huge', 'center'] // 20
+    ['small', 'right', 'push-up'], // 9
+    ['small', 'left', 'push-down'],   // 10
+    ['small', 'right', 'push-up'],   // 11
+    ['small', 'left', 'push-down'],  // 12
+    ['small', 'right', 'push-up'],  // 13 
+    ['small', 'left', 'push-down'],  // 14
+    ['wide', 'center', 'stacked-pair'], // 15
+    ['wide', 'center', 'stacked-pair'],  // 16
+    ['small', 'right', 'push-down'],  // 17
+    ['medium', 'right', 'push-up'],  // 18
+    ['medium', 'right', 'push-down'],  // 19 
+    ['medium', 'left', 'push-up'],  // 20
+    ['medium', 'right', 'push-down'], // 21
+    ['medium', 'left', 'push-up'],  // 22
+    ['medium', 'right', 'push-down'], // 23
+    ['medium', 'left', 'push-up'], // 24
+    ['medium', 'right', 'push-down'],  // 25
+    ['big', 'right'], // 26
+    ['big', 'left'], // 27
+    ['huge', 'center'] // 28
 ];
 
 // This loop generates the items and injects them into the empty #gallery
@@ -96,7 +104,8 @@ for (let i = 1; i <= photosCount; i++) {
                 <input type="range" min="0" max="100" value="50" class="slider-input">
             </div>
         `;
-        } else {
+        } 
+        else {
         // Logic for all other photos
         const img = document.createElement('img');
         img.src = `images/gallery-photos/${i}.jpg`;
@@ -109,7 +118,7 @@ for (let i = 1; i <= photosCount; i++) {
         div.appendChild(img);
     }
 
-    // Standard placement logic for 7, 8, 12, 13
+    // Standard placement logic for 7, 8, 15, 16
     if (i === 7 || i === 8) {
         if (!diptychContainer) {
             diptychContainer = document.createElement('div');
@@ -118,7 +127,7 @@ for (let i = 1; i <= photosCount; i++) {
         }
         diptychContainer.appendChild(div);
     } 
-    else if (i === 12 || i === 13) {
+    else if (i === 15 || i === 16) {
         if (!stackedContainer) {
             stackedContainer = document.createElement('div');
             stackedContainer.className = 'stacked-column'; 
