@@ -60,12 +60,12 @@ const layoutClasses = [
     ['medium', 'right', 'push-up'],    // 6
     ['diptych-member'], // 7
     ['diptych-member'], // 8 
-    ['small', 'right', 'push-up'], // 9
+    ['medium', 'right', 'push-up'], // 9
     ['small', 'left', 'push-down'],   // 10
-    ['small', 'right', 'push-up'],   // 11
+    ['medium', 'right', 'push-up'],   // 11
     ['small', 'left', 'push-down'],  // 12
-    ['small', 'right', 'push-up'],  // 13 
-    ['small', 'left', 'push-down'],  // 14
+    ['medium', 'right', 'push-up'],  // 13 
+    ['wide', 'left', 'push-down'],  // 14
     ['wide', 'center', 'stacked-pair'], // 15
     ['wide', 'center', 'stacked-pair'],  // 16
     ['small', 'right', 'push-down'],  // 17
@@ -76,10 +76,10 @@ const layoutClasses = [
     ['medium', 'left', 'push-up'],  // 22
     ['medium', 'right', 'push-down'], // 23
     ['medium', 'left', 'push-up'], // 24
-    ['medium', 'right', 'push-down'],  // 25
+    ['semi-medium'],  // 25
     ['big', 'right'], // 26
     ['big', 'left'], // 27
-    ['huge', 'center'] // 28
+    ['big', 'center'] // 28
 ];
 
 // This loop generates the items and injects them into the empty #gallery
