@@ -23,7 +23,7 @@ body {
     text-align: center;
     background-position: top right;
     position: relative; 
-    z-index: 10;
+    z-index: 30;
 }
 
 /* --- Typography Section --- */
@@ -539,6 +539,45 @@ html {
 
 /* --- Global Mobile Scaling and Responsive Adjustments --- */
 @media (max-width: 768px) {
+    .rotate-hint {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+        pointer-events: none; /* User can click through it */
+    }
+
+    /* 2. Style the phone icon */
+    .phone-icon {
+        width: 25px;
+        height: 45px;
+        border: 2px solid var(--text-color);
+        border-radius: 4px;
+        position: relative;
+        /* Trigger the animation below */
+        animation: rotateDevice 4s ease-in-out infinite;
+    }
+
+    /* 3. The Animation: Rotate from vertical to horizontal */
+    @keyframes rotateDevice {
+        0%, 10% { transform: rotate(0deg); }
+        40%, 60% { transform: rotate(90deg); }
+        90%, 100% { transform: rotate(0deg); }
+    }
+
+    /* 4. Style the text underneath */
+    .rotate-hint p {
+        font-size: 0.5rem;
+        margin-top: 10px;
+        color: var(--text-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.8;
+    }
     .hero {
         background: url('images/hero-photo-mobile/1.jpg') no-repeat;
         
@@ -848,5 +887,11 @@ html {
     
     .contact-content {
         height: 60vh !important; 
+    }
+}
+
+@media (orientation: landscape) {
+    .rotate-hint {
+        display: none !important;
     }
 }
