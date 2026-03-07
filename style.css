@@ -548,28 +548,24 @@ html {
         flex-direction: column;
         align-items: center;
         z-index: 1000;
-        pointer-events: none; /* User can click through it */
+        pointer-events: none; 
     }
 
-    /* 2. Style the phone icon */
     .phone-icon {
         width: 25px;
         height: 45px;
         border: 2px solid var(--text-color);
         border-radius: 4px;
         position: relative;
-        /* Trigger the animation below */
         animation: rotateDevice 4s ease-in-out infinite;
     }
 
-    /* 3. The Animation: Rotate from vertical to horizontal */
     @keyframes rotateDevice {
         0%, 10% { transform: rotate(0deg); }
         40%, 60% { transform: rotate(90deg); }
         90%, 100% { transform: rotate(0deg); }
     }
 
-    /* 4. Style the text underneath */
     .rotate-hint p {
         font-size: 0.5rem;
         margin-top: 10px;
@@ -879,10 +875,6 @@ html {
         width: 60% !important; 
         margin: -3% auto 20px auto !important;
         max-width: 500px;
-    }
-
-    .floating-contact {
-        display: none !important;
     }
     
     .contact-content {
