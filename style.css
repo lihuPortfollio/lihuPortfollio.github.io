@@ -539,25 +539,35 @@ html {
 
 /* --- Global Mobile Scaling and Responsive Adjustments --- */
 @media (max-width: 768px) {
-    .rotate-hint {
+     .rotate-hint {
         position: fixed;
-        bottom: 30px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%); 
+        
         display: flex;
         flex-direction: column;
         align-items: center;
         z-index: 1000;
         pointer-events: none; 
+        
+        animation: fadeOutHint 0.5s forwards;
+        animation-delay: 3s; 
     }
 
     .phone-icon {
-        width: 25px;
-        height: 45px;
-        border: 2px solid var(--text-color);
-        border-radius: 4px;
+        width: 50px; 
+        height: 90px;
+        border: 3px solid var(--text-color);
+        border-radius: 8px;
         position: relative;
-        animation: rotateDevice 4s ease-in-out infinite;
+        
+        animation: rotateDevice 3s ease-in-out forwards; 
+    }
+
+    @keyframes fadeOutHint {
+        from { opacity: 1; }
+        to { opacity: 0; visibility: hidden; }
     }
 
     @keyframes rotateDevice {
@@ -567,13 +577,14 @@ html {
     }
 
     .rotate-hint p {
-        font-size: 0.5rem;
-        margin-top: 10px;
+        font-size: 0.8rem; 
+        margin-top: 20px;
         color: var(--text-color);
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
         opacity: 0.8;
     }
+
     .hero {
         background: url('images/hero-photo-mobile/1.jpg') no-repeat;
         
