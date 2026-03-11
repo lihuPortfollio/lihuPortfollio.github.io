@@ -892,6 +892,10 @@ html {
     .contact-content {
         height: 60vh !important; 
     }
+    .email-link {
+        border: none !important;
+        padding: 0 !important;
+    }
 }
 
 @media (orientation: landscape) {
