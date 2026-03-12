@@ -179,3 +179,22 @@ lightbox.onclick = (e) => {
 function closeContactCard() {
     document.getElementById('floatingCard').style.display = 'none';
 }
+
+const topNav = document.querySelector('.top-nav');
+const heroSection = document.querySelector('.hero');
+
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            topNav.classList.add('visible');
+        } else {
+            topNav.classList.remove('visible');
+        }
+    });
+}, {
+    threshold: 0.1 
+});
+
+if (heroSection && topNav) {
+    navObserver.observe(heroSection);
+}
