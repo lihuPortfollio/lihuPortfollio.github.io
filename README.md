@@ -14,3 +14,4 @@ Features:
 - Added sliding window for edited photos.
 - Edited the scrollbar view.
 - Added mobile styling.
+- Added navigation bar.

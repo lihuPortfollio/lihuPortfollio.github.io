@@ -15,7 +15,7 @@ body {
 /* --- Navigation Bar --- */
 .top-nav {
     width: 100%;
-    height: 15%;
+    height: 10vh; 
     background-color: var(--bg-color);
     display: flex;
     align-items: center;
@@ -25,7 +25,9 @@ body {
     left: 0;
     z-index: 1000;
     border-bottom: 1px solid #1a1a1a;
-    
+    padding: 0; 
+    overflow: hidden;
+
     transform: translateY(-100%); 
     opacity: 0;
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -38,14 +40,14 @@ body {
 
 .logo-name {
     font-family: 'Vina Sans', cursive; 
-    
-    font-size: clamp(1.8rem, 4vw, 2.5rem); 
-    
+    font-size: 9.5vh; 
+    line-height: 1; 
+    display: flex;
+    align-items: center;
+
     color: var(--text-color);
     text-transform: uppercase;
-    
     letter-spacing: -0.02em; 
-    line-height: 0.75;
     font-weight: 400;
 }
 
@@ -576,6 +578,9 @@ html {
 
 /* --- Global Mobile Scaling and Responsive Adjustments --- */
 @media (max-width: 768px) {
+    .top-nav { height: 7vh; }
+    .logo-name { font-size: 6.5vh; }
+
      .rotate-hint {
         position: fixed;
         top: 40%;
@@ -907,6 +912,9 @@ html {
 }
 
 @media (max-width: 932px) and (orientation: landscape) {
+    .top-nav { height: 7vh; }
+    .logo-name { font-size: 6.5vh; }
+    
     .hero {
         height: 100vh !important;
         background-size: contain !important;

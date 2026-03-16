@@ -181,20 +181,20 @@ function closeContactCard() {
 }
 
 const topNav = document.querySelector('.top-nav');
-const heroSection = document.querySelector('.hero');
+const triggerElement = document.querySelector('.featured-photo');
 
 const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (!entry.isIntersecting) {
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
             topNav.classList.add('visible');
         } else {
             topNav.classList.remove('visible');
         }
     });
 }, {
-    threshold: 0.1 
+    threshold: 0.1
 });
 
-if (heroSection && topNav) {
-    navObserver.observe(heroSection);
+if (triggerElement && topNav) {
+    navObserver.observe(triggerElement);
 }
