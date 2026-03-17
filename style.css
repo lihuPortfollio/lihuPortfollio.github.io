@@ -287,6 +287,30 @@ body {
     display: block;
 }
 
+/* --- Gallery Text Break --- */
+.gallery-text-break {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10vh 0;
+    margin-bottom: 15vh;
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 5;
+}
+
+.gallery-text-break .text-content {
+    max-width: 600px;
+    text-align: center;
+}
+
+.gallery-text-break p {
+    font-family: 'Syne Mono', monospace;
+    font-size: 2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
 /* --- Lightbox & UI Components --- */
 .lightbox {
     display: none;
@@ -607,6 +631,13 @@ html {
     .intro-text p {
         text-align: left;
         font-size: 1.5rem;
+    }
+
+    .gallery-text-break {
+        padding: 5vh 10vw;
+    }
+    .gallery-text-break .text-content {
+        text-align: left; 
     }
 
     .top-nav { height: 7vh; }
