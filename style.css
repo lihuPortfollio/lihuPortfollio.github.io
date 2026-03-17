@@ -65,6 +65,27 @@ body {
     z-index: 30;
 }
 
+/* --- Introduction Text --- */
+.intro-text {
+    background-color: var(--bg-color);
+    padding: 8vh 5vw 0 5vw; 
+    display: flex;
+    justify-content: center;
+}
+
+.intro-text .container {
+    max-width: 800px; 
+    text-align: center;
+}
+
+.intro-text p {
+    font-family: 'Syne Mono', monospace;
+    font-size: clamp(3rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--text-color); 
+    margin: 0;
+}
+
 /* --- Typography Section --- */
 .main-title {
     text-align: center;
@@ -578,6 +599,13 @@ html {
 
 /* --- Global Mobile Scaling and Responsive Adjustments --- */
 @media (max-width: 768px) {
+    .intro-text {
+        padding: 5vh 8vw 0 8vw;
+    }
+    .intro-text p {
+        text-align: left;
+    }
+
     .top-nav { height: 7vh; }
     .logo-name { font-size: 6.5vh; }
 

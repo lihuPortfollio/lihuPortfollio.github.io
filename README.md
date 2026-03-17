@@ -15,3 +15,4 @@ Features:
 - Edited the scrollbar view.
 - Added mobile styling.
 - Added navigation bar.
+- Added intro text.
