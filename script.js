@@ -118,7 +118,7 @@ for (let i = 1; i <= photosCount; i++) {
         div.appendChild(img);
     }
 
-    // Standard placement logic for 7, 8, 15, 16
+    // Standard placement logic for 7, 8, 15, 16, 27
     if (i === 7 || i === 8) {
         if (!diptychContainer) {
             diptychContainer = document.createElement('div');
@@ -134,8 +134,16 @@ for (let i = 1; i <= photosCount; i++) {
             gallery.appendChild(stackedContainer);
         }
         stackedContainer.appendChild(div);
-    } 
-    else {
+    } else if (i === 27) {
+        const textBreak = document.createElement('section');
+        textBreak.className = 'gallery-text-break';
+        textBreak.innerHTML = `
+            <div class="text-content">
+                <p>If you'll belive in me, I will believe in you. Is that a bargin?</p>
+            </div>
+        `;
+        gallery.appendChild(textBreak);
+    } else {
         gallery.appendChild(div);
     }
 }

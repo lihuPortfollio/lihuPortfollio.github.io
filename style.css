@@ -71,6 +71,8 @@ body {
     padding: 8vh 5vw 0 5vw; 
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 20;
 }
 
 .intro-text .container {
@@ -89,7 +91,7 @@ body {
 /* --- Typography Section --- */
 .main-title {
     text-align: center;
-    padding: clamp(100px, 20vh, 275px) 5vw 12vh 5vw; 
+    padding: 5vh 5vw 12vh 5vw;
     background-color: var(--bg-color);
     position: relative;
     z-index: 10; 
@@ -283,6 +285,30 @@ body {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* --- Gallery Text Break --- */
+.gallery-text-break {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10vh 0;
+    margin-bottom: 15vh;
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 5;
+}
+
+.gallery-text-break .text-content {
+    max-width: 600px;
+    text-align: center;
+}
+
+.gallery-text-break p {
+    font-family: 'Syne Mono', monospace;
+    font-size: 2rem;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 /* --- Lightbox & UI Components --- */
@@ -600,10 +626,18 @@ html {
 /* --- Global Mobile Scaling and Responsive Adjustments --- */
 @media (max-width: 768px) {
     .intro-text {
-        padding: 5vh 8vw 0 8vw;
+        padding: 1% 8vw 0 8vw;
     }
     .intro-text p {
         text-align: left;
+        font-size: 1.5rem;
+    }
+
+    .gallery-text-break {
+        padding: 5vh 10vw;
+    }
+    .gallery-text-break .text-content {
+        text-align: left; 
     }
 
     .top-nav { height: 7vh; }
