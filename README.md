@@ -16,3 +16,4 @@ Features:
 - Added mobile styling.
 - Added navigation bar.
 - Added intro text.
+- Added text inside the gallery.
