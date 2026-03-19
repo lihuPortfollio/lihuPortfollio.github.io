@@ -1037,7 +1037,7 @@ html {
     .photo-item.huge img, 
     .photo-item.big img {
         width: 98% !important;
-        max-height: 95vh !important;
+        max-height: 90vh !important;
     }
     
     .photo-item.left-landscape img   { 
@@ -1053,12 +1053,22 @@ html {
 
      .diptych-row {
         flex-wrap: nowrap !important;
-        gap: 0 !important;
-        margin-bottom: 6vh;
+        gap: 5px !important; 
+        margin-bottom: 8vh !important;
+        width: 100%;
+        display: flex !important;
+        justify-content: center !important;
     }
 
     .photo-item.diptych-member {
-        flex: 0 0 49% !important;
+        flex: 0 0 45% !important; 
+        padding: 0 !important;
+    }
+
+    .photo-item.diptych-member img {
+        width: 100% !important;
+        max-height: 80vh !important; 
+        object-fit: contain;
     }
 
     .gallery-slider .img-before {
@@ -1071,9 +1081,10 @@ html {
         overflow: hidden; 
         z-index: 2;
         margin-bottom: 15vh !important;
+        
     }
     .gallery-slider .img-before img {
-        width: 95vw !important; 
+        width: 85vw !important; 
         height: 100% !important;
         object-fit: cover;
         display: block;
@@ -1081,11 +1092,12 @@ html {
     }
 
     .gallery-slider .img-after {
-        width: 95vw !important;
+        width: 85vw !important;
         height: 100% !important;
         object-fit: cover;
         display: block;
     }
+    
     .mobile-margin-top img {
         margin-top: 10vh !important;
     }
